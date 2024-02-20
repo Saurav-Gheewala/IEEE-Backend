@@ -10,5 +10,5 @@ import java.util.List;
 public interface UserDao extends JpaRepository<User, Long>
 {
     boolean existsByEmailAndPassword(String email , String password);
-    List<User> findByEmail(String email);
+    User findByEmail(String email);
 }
