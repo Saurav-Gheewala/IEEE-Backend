@@ -1,0 +1,41 @@
+id,category,option1,option2,option3,option4,question_title,right_answer
+1,Java,Software,"Output device","Input device","None of these","Identify the device through which data and instructions are entered into a computer?","Input device"
+2,Java,"Local Area Network","Longitudinal Access Node","Logical Authentication Network","Limited Application Node","What does 'LAN' stand for?","Local Area Network"
+3,Java,"Object-Oriented Programming","Output Overload Procedure","Operator Overloading Platform","chObject Order Processingar","What does OOP stand for in the context of Java?","Object-Oriented Programming"
+4,Java," JRE",JIT,JDK,JVM,"Which component is used to compile, debug and execute the java programs?",JDK
+5,Java,Object-oriented,"Use of pointers",Portable,"Dynamic and Extensible","Which one of the following is not a Java feature?","Use of pointers"
+6,Java," identifier & keyword",identifier,keyword,"none of the mentioned","Which of these cannot be used for a variable name in Java?",keyword
+7,Java,.js,.txt,.class,.java,"What is the extension of java code files?",java
+8,Java,Polymorphism,Inheritance,Compilation,Encapsulation,"Which of the following is not an OOPS concept in Java?",Compilation
+9,Java,ArrayList,"Abstract class","Object class",String,"Which of the following is a superclass of every class in Java?","Object class"
+10,Java,"start() method is used to begin execution of the thread","run() method is used to begin execution of a thread before start() method in special cases","A thread can be formed by implementing Runnable interface only","A thread can be formed by a class that extends Thread class ","Which of these statements is incorrect about Thread?","run() method is used to begin execution of a thread before start() method in special cases"
+11,Java,check,throw,catch,try,"Which of these keywords are used for the block to be examined for exceptions?",try
+12,Java,Protected,Void,Public,Private,"Which one of the following is not an access modifier?",Void
+13,Java,"0 to 256","-128 to 127","0 to 65535","0 to 32767","What is the numerical range of a char data type in Java?","0 to 65535"
+14,Java,"Object References",Objects,"Primitive Data type",None,"Arrays in java are",Objects
+15,Java,Heap,Stack,Array,Tree,"Where does the system stores parameters and local variables whenever a method is invoked?",Stack
+16,Java,"Before Garbage Collection","Before an object goes out of scope","Before a variable goes out of scope",None,"When is the finalize() method called?","Before Garbage Collection"
+17,Java," Abstract class",Interface,Class,Method,"What is Runnable?",Interface
+18,Java,"Bytecode is executed by JVM","The applet makes the Java code secure and portable","Use of exception handling","Dynamic binding between objects","Which of the following option leads to the portability and security of Java?"," Bytecode is executed by JVM"
+19,Java,"char ch = 'utea';","char ca = 'tea';","char cr = u0223;","char cc = 'itea';","Which of the following is a valid declaration of a char?","char ch = 'utea';"
+20,Java,0,"Not a Number",Infinity,"Run time exception","What does the expression float a = 35 / 0 return?","Run time exception"
+21,General,Byte,Megabyte,Kilobyte,"None of these","8 Bits make up 1",Byte
+22,General,Data,Instruction,Information,Excursion,"Which one is the result of the output given by a computer",Information
+23,General,"Optical disk","Magnetic disk","Magneto Optical disk","None of these","What is kind of CD-ROM?","Optical disk"
+24,General,"Super computer",Iframes,"Mega Frames","Super Access","Which is known as the most powerful type of computer?","Super computer"
+25,General,"Controls the rest of the computer's component","Keeps the system unit cool","Interprets instructions given by software","Processing data","Which is NOT a fnction of a microprocessor?","Keeps the system unit cool"
+26,General,"Illustrations group","Object group","Text group","Table group","In Power Point, the header and footer button can be found on the insert tab in what group?","Text group"
+27,General,"World whole web","Wide world web","Web world wide","World wide web","WWW stands for?","World wide web"
+28,General,"ALU,Mouse","ALU,Control unit","ALU,Integrated circuits","Control unit,Heetson","Which of the following are components of CPU?","ALU,Control unit"
+29,General,Router,Switch,Modem,"None of these","What is the name of a device that converts digital signals to analog signals?",Modem
+30,General,"Expansion Board","External Drive","Mother Board","All of these","Where is RAM located?","Mother Board"
+31,General,"An embedded microprocessor","extensive memory","independent processing capabaility","a keyboard and screen","A dumb terminal has","a keyboard and screen"
+32,General,"Dot per sq.inch","Dot per inch","Dot printed per unit time"," All of the above","The output quality of a printer is measured by","Dot per inch"
+33,General,Accumulation,Sorting,"Collating Sequence",Unicode,"Which of the following defines the assigned ordering among the characters used by the computer?","Collating Sequence"
+34,General,Compact,I/O,Drivers,Storage,"Which of the following devices provides the communication between a computerand the outer world?",I/O
+35,General,"Web Client",User,"Web Browser","Web Server","Which of the following can access the server?","Web Client"
+36,General,"High level",Basic,C,Machine,"Which of the following is known as the language made up of binary coded instructions?",Machine
+37,General,"Web Client",User,"Web Browser","Web Server","Which of the following can access the server?","Web Browser"
+38,General,Compact,I/O,Drivers,Storage,"Which of the following devices provides the communication between a computerand the outer world?",I/O
+39,General,Accumulation,Sorting,"Collating Sequence",Unicode,"Which of the following defines the assigned ordering among the characters used by the computer?","Collating Sequence"
+40,General,Hardware,Software,"System software",Package,"Which of the following are physical devices of a computer?",Hardware

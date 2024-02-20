@@ -61,8 +61,8 @@ public class UserService {
     public void sendEmail(String to, String password) {
         SimpleMailMessage mailMessage = new SimpleMailMessage();
         mailMessage.setTo(to);
-        mailMessage.setSubject("IEEE Quiz Password");
-        mailMessage.setText("Your Password For Quiz Is " + password+". ");
+        mailMessage.setSubject("Welcome To Spectrum'24");
+        mailMessage.setText("Your Password For Spectrum'24 IEEE Quiz Is " + password );
         javaMailSender.send(mailMessage);
         System.out.println("Sent");
     }

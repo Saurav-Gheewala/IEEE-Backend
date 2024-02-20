@@ -45,4 +45,9 @@ public class UserService
         questionDao.save(question);
         return new ResponseEntity<>("Created", HttpStatus.CREATED);
     }
+
+    public ResponseEntity<List<User>> userDetails(String email)
+    {
+        return  new ResponseEntity<>(userDao.findByEmail(email), HttpStatus.OK);
+    }
 }

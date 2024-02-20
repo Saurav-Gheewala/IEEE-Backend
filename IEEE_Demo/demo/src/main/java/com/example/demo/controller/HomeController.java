@@ -5,6 +5,8 @@ import com.example.demo.model.User;
 import com.example.demo.dao.UserDao;
 import com.example.demo.model.UserAuth;
 import com.example.demo.service.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,12 +18,14 @@ import java.util.List;
 @RequestMapping("quiz")
 public class HomeController
 {
+
+    Logger logger = LoggerFactory.getLogger(HomeController.class);
     @Autowired
     UserService userService;
     @Autowired
     UserDao userDao;
 
-    //http://localhost:8080/quiz/get
+    //http://localhost:8080/quiz/auth
     @PostMapping("auth")
     public ResponseEntity<Integer> authUser(@RequestBody UserAuth userAuth)
     {
@@ -30,10 +34,11 @@ public class HomeController
         String category = userAuth.getCategory();
         boolean userExists = userService.doesUserExistByEmail(email, password);
         System.out.println(email);
-        System.out.println(password);
+        logger.info(password);
+        System.out.println();
         System.out.println(category);
         System.out.println(userExists);
-//        return ResponseEntity.status(HttpStatus.OK).body(userExists);
+
         if(userExists) {
             System.out.println("hello");
             return userService.createQuiz(category);
@@ -45,6 +50,11 @@ public class HomeController
     public ResponseEntity<String> addQuestion(@RequestBody Question question)
     {
         return userService.addQuestion(question);
+    }
+    @GetMapping("getDetail/{email}")
+    public ResponseEntity<List<User>> getUserDetails(@PathVariable String email)
+    {
+        return userService.userDetails(email);
     }
 
 
