@@ -16,7 +16,7 @@ public class Quiz {
     private String email;
     private String phone;
     private String category;
-    private int score;
+    private Integer score;
     @ManyToMany
     private List<Question> question;
 }

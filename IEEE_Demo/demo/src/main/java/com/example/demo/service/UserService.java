@@ -8,9 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @org.springframework.stereotype.Service
 public class UserService
@@ -38,6 +36,7 @@ public class UserService
         quiz.setEmail(email);
         quiz.setPhone(user.getPhone());
         quiz.setCategory(category);
+        quiz.setScore(0);
         quizDao.save(quiz);
         Quiz savedQuiz = quizDao.save(quiz);
         Integer generatedId = savedQuiz.getId();
@@ -70,5 +69,55 @@ public class UserService
         }
 
         return new ResponseEntity<>(questionsFroUser,HttpStatus.OK);
+    }
+
+    public ResponseEntity<Integer> calculateResult(Integer id, Map<Integer, String> responses)
+    {
+        List<QuizResponse> res = new ArrayList<>();
+
+        for (Map.Entry<Integer, String> entry : responses.entrySet()) {
+            Integer questionId = entry.getKey();
+            String userResponse = entry.getValue();
+
+            QuizResponse quizResponse = new QuizResponse(questionId, userResponse);
+            res.add(quizResponse);
+        }
+        int right = calculate(id, res);
+        Optional<Quiz> optionalQuiz = quizDao.findById(id);
+        Quiz quiz = optionalQuiz.get();
+        quiz.setScore(right);
+        quizDao.save(quiz);
+        System.out.println(right);
+        return  new ResponseEntity<>(right,HttpStatus.OK);
+    }
+    private int calculate(Integer id, List<QuizResponse> responses)
+    {
+        Quiz quiz = quizDao.findById(id).get();
+        List<Question> questions = quiz.getQuestion();
+        System.out.println(responses);
+        System.out.println("");
+        System.out.println(questions);
+        System.out.println("");
+        questions.sort(Comparator.comparingInt(Question::getId));
+        System.out.println(questions);
+
+        int right = 0;
+        int i = 0;
+        for(QuizResponse response : responses)
+        {
+            if(response.getResponse().equals(questions.get(i).getRightAnswer()))
+            {
+                right++;
+            }
+            i++;
+        }
+    return right;
+    }
+
+    public ResponseEntity<ResultWrapper> getdetails(Integer id)
+    {
+        Quiz quiz = quizDao.findById(id).get();
+        ResultWrapper resultWrapper =new ResultWrapper(quiz.getName(),quiz.getEmail(),quiz.getPhone(),quiz.getCategory(),quiz.getScore());
+        return new ResponseEntity<>(resultWrapper,HttpStatus.OK);
     }
 }

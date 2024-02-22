@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("quiz")
@@ -33,8 +34,8 @@ public class HomeController
         String category = userAuth.getCategory();
         boolean userExists = userService.doesUserExistByEmail(email, password);
         System.out.println(email);
-        logger.info(password);
-        System.out.println();
+//        logger.info(password);
+        System.out.println(password);
         System.out.println(category);
         System.out.println(userExists);
 
@@ -61,7 +62,16 @@ public class HomeController
     {
         return userService.getQuestions(quizId);
     }
-
+    @PostMapping("submit/{quizId}")
+    public ResponseEntity<Integer> submitQuiz(@PathVariable Integer quizId, @RequestBody Map<Integer, String> responses)
+    {
+        return userService.calculateResult(quizId,responses);
+    }
+    @GetMapping("getLastPage/{id}")
+    public ResponseEntity<ResultWrapper> getLastPageDetails(@PathVariable Integer id)
+    {
+        return userService.getdetails(id);
+    }
 
 }
 
