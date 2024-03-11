@@ -19,6 +19,15 @@ public class UserService
     QuestionDao questionDao;
     @Autowired
     QuizDao quizDao;
+
+    public ResponseEntity<Integer> authAndCreateQuiz(UserAuth userAuth)
+    {
+        boolean userExists = doesUserExistByEmail(userAuth.getEmail(), userAuth.getPassword());
+        if(userExists)
+            return createQuiz(userAuth.getCategory(),userAuth.getEmail());
+        else
+            return new ResponseEntity<>(0,HttpStatus.BAD_REQUEST);
+    }
     public boolean doesUserExistByEmail(String email, String password) {
         return userDao.existsByEmailAndPassword(email, password);
     }
@@ -119,5 +128,10 @@ public class UserService
         Quiz quiz = quizDao.findById(id).get();
         ResultWrapper resultWrapper =new ResultWrapper(quiz.getName(),quiz.getEmail(),quiz.getPhone(),quiz.getCategory(),quiz.getScore());
         return new ResponseEntity<>(resultWrapper,HttpStatus.OK);
+    }
+
+    public ResponseEntity<Optional<Quiz>>   getData(Integer id)
+    {
+        return new ResponseEntity<>(quizDao.findById(id), HttpStatus.OK);
     }
 }
