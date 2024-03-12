@@ -28,17 +28,18 @@ public class PdfService {
 
         String name = quiz.getName();
         String email = quiz.getEmail();
-        float x = 160;
+        float x = 300;
         float y = 220;
         Path pdfPath = Paths.get("D:\\Spring_Boot\\Project\\IEEE\\IEEE_Demo\\demo\\src\\main\\resources\\Inspairo_Certifiate.pdf");
         try (PDDocument document = PDDocument.load(pdfPath.toFile())) {
             PDPage page = document.getPage(0); // Access the first (and only) page
 
-            try (PDPageContentStream contentStream = new PDPageContentStream(document, page, PDPageContentStream.AppendMode.APPEND, true)) {
+            try (PDPageContentStream contentStream = new PDPageContentStream(document, page, PDPageContentStream.AppendMode.APPEND, true))
+            {
                 contentStream.setFont(PDType1Font.TIMES_ITALIC, 25);
-                contentStream.lineTo(x,y);
+                contentStream.lineTo( x - (name.length()*5) ,y);
                 contentStream.beginText();
-                contentStream.newLineAtOffset(x, y);
+                contentStream.newLineAtOffset(x - (name.length()*5), y);
                 contentStream.showText(name);
                 contentStream.endText();
             }
